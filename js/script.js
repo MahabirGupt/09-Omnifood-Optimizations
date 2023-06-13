@@ -14,10 +14,20 @@ console.log(h1);
 //   h1.style.padding = "5rem";
 // });
 
+///////////////////////////////////////////////////////////
 // Set current year
 const year = document.querySelector(".year");
 const currentYear = new Date().getFullYear();
 year.textContent = currentYear;
+
+// Make mobile navigation work
+
+const btnNav = document.querySelector(".btn-mobile-nav");
+const header = document.querySelector(".header");
+
+btnNav.addEventListener("click", function () {
+  header.classList.toggle("nav-open"); //write name of class .nav-open without the dot
+});
 
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
