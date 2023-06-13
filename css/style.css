@@ -1,0 +1,704 @@
+/* **************************** */
+/* HEADER */
+/* **************************** */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  /* vertically align the elements */
+  align-items: center;
+  background-color: #fdf2e9;
+
+  /* fixing the height to make the header sticky */
+  height: 9.6rem;
+  padding: 0 4.8rem;
+  position: relative;
+}
+.logo {
+  height: 2.2rem;
+}
+
+/* **************************** */
+/* NAVIGATION */
+/* **************************** */
+.main-nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 4.8rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #cf711f;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+  background-color: #cf711f;
+}
+
+/* MOBILE */
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+/* **************************** */
+/* HERO SECTION */
+/* **************************** */
+
+.section-hero {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0; /*top 4.8rem and bottom 9.6rem*/
+}
+
+/* creating a container */
+.hero {
+  max-width: 130rem; /*1rem=10px 1300px=130rem*/
+  /* to centre the div */
+  margin: 0 auto;
+
+  /* creating padding to the right and left */
+  padding: 0 3.2rem;
+  display: grid;
+  /* make 2 equally size columns */
+  grid-template-columns: 1fr 1fr;
+  /* gaps between 2 columns */
+  gap: 9.6rem;
+  align-items: center;
+}
+
+.hero-description {
+  font-size: 2rem; /*1rem=10px 20px=2rem*/
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.hero-img {
+  width: 100%; /*100% will fill the entire parent element which is "hero-img-box"*/
+  /* "hero-img-box" is exactly one of the 2 columns of the grid */
+}
+
+.delivered-meals {
+  /* displaying the images and text side by side */
+  display: flex; /*use flex instead of grid if size of columns is not important*/
+  /* let the content determine the sizes */
+
+  align-items: center; /* to centre img and text*/
+  gap: 1.6rem;
+  /* create vertical spacing between btns and imgs */
+  margin-top: 8rem;
+}
+
+/* "delivered-imgs" is also a flex container */
+.delivered-imgs {
+  display: flex;
+}
+
+/* selecting img using descendent selector */
+.delivered-imgs img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+  /* to overlap the imgs */
+  margin-right: -1.6rem;
+
+  /* to create a border around the img */
+  border: 3px solid #fdf2e9;
+}
+
+.delivered-imgs img:last-child {
+  margin: 0; /*can use margin-right also*/
+}
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* selecting text using descendent selector */
+.delivered-text span {
+  color: #cf711f;
+  /* make the text bolder */
+  font-weight: 700;
+}
+
+/* **************************** */
+/* FEATURED IN SECTION */
+/* **************************** */
+
+.section-featured {
+  padding: 4.8rem 0 3.2rem 0;
+}
+.heading-featured-in {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.4rem;
+  color: #888; /*the lower the more black*/
+}
+
+.logos {
+  /* To put the images side by side */
+  display: flex;
+  justify-content: space-around;
+  /* align-items: center; */
+}
+
+/* selecting element using descendent selector */
+.logos img {
+  height: 3.2rem;
+  /* To change the color of the img to full black */
+  filter: brightness(0);
+  /* to change the black color to grey */
+  opacity: 50%; /*can also use 0.5*/
+}
+
+/* **************************** */
+/* HOW IT WORKS SECTION */
+/* **************************** */
+.section-how {
+  padding: 9.6rem 0;
+}
+
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+.step-img-box {
+  position: relative;
+
+  /* to centre the img use flex*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+  content: ""; /*in order to make it appear we have to give it some content.*/
+  display: block; /*use block if want to make it into a shape*/
+
+  border-radius: 50%;
+
+  /* in order for the shape to be behind the img */
+
+  position: absolute; /*relative is the parent element*/
+  /* to center the shape */
+  top: 50%;
+  left: 50%;
+  /* use transform property */
+  transform: translate(-50%, -50%);
+}
+/* Using the before Pseudo Class */
+.step-img-box::before {
+  width: 60%; /*img = 35%*/
+  /* height: 60%; */
+
+  /* to give it the same height use padding at bottom */
+  /* 60% of parents-width */
+  padding-bottom: 60%;
+
+  background-color: #fdf2e9;
+  /* use z-index to put the circle behind the img */
+  z-index: -2;
+}
+
+/* Using the after Pseudo Class */
+.step-img-box::after {
+  width: 45%; /*img = 35%*/
+
+  /* to give it the same height use padding at bottom */
+  /* 60% of parents-width */
+  padding-bottom: 45%;
+
+  background-color: #fae5d3;
+  z-index: -1;
+}
+.step-img {
+  width: 35%;
+  /* can also use z-index here */
+  /* z-index: 10; */
+}
+
+/* **************************** */
+/* MEALS SECTION */
+/* **************************** */
+.section-meals {
+  padding: 9.6rem 0;
+}
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075); /* 0.075=7.5% */
+  /* to round the card */
+  border-radius: 11px;
+  /* To round the img as well */
+  overflow: hidden;
+  /* to create animation */
+  transition: all 0.4s;
+}
+/* using hover Pseudo class */
+.meal:hover {
+  /* To make the image move up */
+  transform: translateY(-1.2rem); /*horizontal 2rem vertical 2rem*/
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06); /* 0.06=6% */
+}
+.meal-content {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+.meal-tags {
+  margin-bottom: 1.2rem;
+  /* to create gap between tags change to flex */
+  display: flex;
+  gap: 0.4rem;
+}
+.tag {
+  /* to apply padding change to inline-block */
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #333;
+  /* can't use border-radius:50% */
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+.tag--vegan {
+  background-color: #94d82d;
+}
+.tag--paleo {
+  background-color: #ffd43b;
+}
+.meal-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+/* style the unordered list */
+.meal-attributes {
+  /* get rid of the bullet points */
+  list-style: none;
+  /* create flex in the parent container */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+  /* parent element of meal-icon */
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.meal-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #e67e22;
+}
+.meal-img {
+  width: 100%;
+}
+
+.all-recipes {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+/* **************************** */
+/* TESTIMONIALS SECTION */
+/* **************************** */
+.section-testimonials {
+  background-color: #fdf2e9;
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: 55fr 45fr; /*total fr=100*/
+  align-items: center;
+}
+
+.testimonials-container {
+  padding: 9.6rem; /*all around*/
+}
+
+/* testimonials is the parent element */
+.testimonials {
+  /* create a new 2-col grid */
+  display: grid;
+  /* grid-template-columns: repeat(2, 1fr); must have comma between 2 and 1fr */
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+
+/* testimonials img */
+.testimonial-img {
+  width: 6.4rem;
+  /* to make the img round since it is a sq img */
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+.testimonial-text {
+  font-size: 1.8rem;
+  line-height: 1.8; /*not 1.8rem because it is a multiplier*/
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  /* smaller font-size due to visual hierachy */
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+
+.gallery {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+  grid-template-columns: repeat(3, 1fr); /*3 equal size columns*/
+
+  /* create gaps between imgs */
+  gap: 1.6rem;
+  /* create space all around */
+  padding: 1.6rem;
+}
+
+/* to prevent overflow on the parent element */
+.gallery-item {
+  overflow: hidden;
+}
+
+/* using the descendent selector img */
+.gallery-item img {
+  /* to get rid of the white spaces vertically between imgs */
+  display: block;
+  /* make the images flexible */
+  width: 100%;
+
+  /* add transition property on original element */
+  transition: all 0.4s;
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+/* **************************** */
+/* PRICING SECTION */
+/* **************************** */
+.section-pricing {
+  padding: 9.6rem 0;
+}
+
+.pricing-plan {
+  border-radius: 11px;
+  width: 75%;
+}
+
+.pricing-plan--starter {
+  justify-self: end;
+  border: 2px solid #fdf2e9;
+  padding: 4.6rem;
+}
+
+.pricing-plan--complete {
+  background-color: #fdf2e9;
+  padding: 4.8rem;
+  position: relative;
+  /* to prevent "Best value" text from overflowing */
+  overflow: hidden;
+}
+
+/* create a Psuedo after element */
+.pricing-plan--complete::after {
+  content: "Best value";
+  position: absolute;
+  top: 6%;
+  right: -18%;
+
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  background-color: #ffd43b;
+  padding: 0.8rem 8rem;
+  color: #333;
+  transform: rotate(45deg);
+}
+.plan-header {
+  text-align: center;
+  margin-bottom: 4.8rem;
+}
+.plan-name {
+  color: #cf711f;
+  /* to make the font bold */
+  font-weight: 600;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.75;
+  margin-bottom: 3.2rem;
+}
+.plan-price {
+  font-size: 6.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.6rem;
+}
+.plan-price span {
+  font-size: 3rem;
+  font-weight: 500;
+  /* to create space between $ and price */
+  margin-right: 0.8rem;
+}
+.plan-text {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: #6f6f6f;
+}
+
+.plan-sign-up {
+  margin-top: 4.8rem;
+  text-align: center;
+}
+
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.feature-icon {
+  color: #e67e22;
+  height: 3.2rem;
+  width: 3.2rem;
+  background-color: #fdf2e9;
+  margin-bottom: 3.2rem;
+  padding: 1.6rem;
+  border-radius: 50%;
+}
+.feature-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 700;
+  margin-bottom: 1.6rem;
+}
+.feature-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+/* **************************** */
+/* CTA SECTION */
+/* **************************** */
+.section-cta {
+  /* top/right/bottom/left */
+  padding: 4.8rem 0 12.8rem 0;
+
+  /* is the same as */
+  /* top/horizontal/left */
+  /* padding: 9.6rem 0 12.8rem; */
+}
+
+/* Create a new grid container */
+.cta {
+  display: grid; /*can also use display:flex;*/
+  grid-template-columns: 2fr 1fr; /*CTA is 2fr(2/3) and Image 1fr(1/3)*/
+  /* background-color: #e67e22; */
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15); /* 0.15=15% */
+  border-radius: 11px;
+
+  /* Specify a gradient */
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+
+  overflow: hidden;
+}
+
+.cta-text-box {
+  padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+  color: #45260a;
+}
+
+.cta .heading-secondary {
+  color: #45260a;
+  /* can also use color:inherit as "cta-text-box" is the parent element  */
+  margin-bottom: 3.2rem;
+}
+
+.cta-text {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-bottom: 4.8rem;
+}
+.cta-img-box {
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(235, 151, 78, 0.35),
+      rgba(230, 125, 34, 0.35)
+    ),
+    url("../img/eating.jpg"); /*..(dotdot) means go to the root folder*/
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 3.2rem;
+  row-gap: 2.4rem;
+}
+
+.cta-form label {
+  /* to start label on a new line */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+  /* occupy the entire parent */
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* using the Pseudo element */
+.cta-form input::placeholder {
+  color: #aaa;
+}
+
+.cta *:focus {
+  outline: none;
+  /* using box-shadow instead */
+  box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
+}
+
+/* **************************** */
+/* FOOTER SECTION */
+/* **************************** */
+.footer {
+  padding: 12.8rem 0;
+  /* to add a border to seperate footer from cta */
+  border-top: 1px solid #eee;
+}
+
+.grid--footer {
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+}
+
+.logo-col {
+  display: flex;
+  flex-direction: column;
+}
+.footer-logo {
+  /* to add spacing below the logo */
+  display: block;
+  margin-bottom: 3.2rem;
+}
+
+.social-links {
+  list-style: none;
+  /* to make the icons side by side */
+  display: flex;
+  gap: 2.4rem;
+}
+
+.social-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.copyright {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #767676;
+  /* to shift the text right to the bottom */
+  margin-top: auto;
+}
+
+.footer-heading {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.contacts {
+  font-style: normal;
+  font-size: 1.6rem;
+  line-height: 1.6;
+}
+
+.address {
+  margin-bottom: 2.4rem;
+}
+.footer-nav {
+  /* get rid of bullet points */
+  list-style: none;
+  /* to create space between the links */
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.footer-link:link,
+.footer-link:visited {
+  /* getting rid of the underline */
+  text-decoration: none;
+  font-size: 1.6rem;
+  color: #767676;
+  transition: all 0.3s;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: #555;
+}
