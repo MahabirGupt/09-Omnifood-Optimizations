@@ -30,6 +30,39 @@ btnNav.addEventListener("click", function () {
 });
 
 ///////////////////////////////////////////////////////////
+// Smooth scrolling animation
+
+const allLinks = document.querySelectorAll("a:link");
+// use .querySelectorAll if want to select more than 1 element
+// use a:link selector to select all the href links
+
+allLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    // (e) stands for event
+    e.preventDefault(); //prevent default from happening
+
+    // to get the details of each link
+    const href = link.getAttribute("href");
+
+    // Scroll back to top
+    if (href === "#")
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    // Scroll to other links
+    else if (href !== "#" && href.startsWith("#")) {
+      const sectioneElement = document.querySelector(href);
+      sectioneElement.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Close Mobile Navigation
+    if (link.classList.contains("main-nav-link")) {
+      header.classList.toggle("nav-open"); //write name of class .nav-open without the dot
+    }
+  });
+});
+///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
 // function checkFlexGap() {
 //   var flex = document.createElement("div");

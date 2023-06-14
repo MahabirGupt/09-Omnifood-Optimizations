@@ -68,6 +68,9 @@ html {
   /* Percentage of user's browser font-size setting  */
   font-size: 62.5%;
   overflow-x: hidden; /*all the elements that exceed the viewport horizontally will be hidden*/
+
+  /* Does not work on Safari and Microsoft Edge */
+  /* scroll-behavior: smooth; */
 }
 
 body {
