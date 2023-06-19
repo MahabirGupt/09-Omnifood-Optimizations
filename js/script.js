@@ -62,6 +62,37 @@ allLinks.forEach(function (link) {
     }
   });
 });
+
+///////////////////////////////////////////////////////////
+// Sticky Navigation
+// Using intersection observer
+
+const sectionHero = document.querySelector(".section-hero");
+const obs = new IntersectionObserver(
+  function (entries) {
+    // 1 entries for each threshold value
+    const ent = entries[0]; //(entries) are arrays
+    console.log(ent);
+
+    if (ent.isIntersecting === false) {
+      // make the header sticky
+      document.body.classList.add("sticky");
+    }
+
+    if (ent.isIntersecting === true) {
+      // remove the header sticky
+      document.body.classList.remove("sticky");
+    }
+  },
+  {
+    // null means In the viewport
+    root: null, //viewing the hero-sectio inside of the view-port
+    threshold: 0, //this will fire an event as soon as 0% of the hero-section is in the viewport
+    rootMargin: "-80px",
+  }
+);
+obs.observe(sectionHero); //section-hero is the element that we want to observe
+
 ///////////////////////////////////////////////////////////
 // Fixing flexbox gap property missing in some Safari versions
 // function checkFlexGap() {
